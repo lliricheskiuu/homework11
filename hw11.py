@@ -25,16 +25,14 @@ data = read_json('data.json')
 
 
 def sort_by_surname(sort_dict):
-    sort_dict['name'] = sort_dict['name'].split()
-    # return ''.join(sort_dict['name'][-1]) # не работает так
-    return sort_dict['name'][-1]
+    return sort_dict['name'].split()[-1]
 
 
 data = sorted(data, key=sort_by_surname)
 
 print("\nSorted by surname:\n")
 for i in range(9):
-    data[i]['name'] = ' '.join(data[i]['name'])
+    # data[i]['name'] = ' '.join(data[i]['name'])
     print(data[i]['name'])
 
 # 3)
@@ -43,7 +41,8 @@ for i in range(9):
 def sort_by_age(sort_dict):
     years = re.findall(r"[0-9]+", sort_dict['years'])
     sort_dict['years'] = sort_dict['years'].split()
-    if sort_dict['years'].count('BC.') >= 1:
+    # if sort_dict['years'].count('BC.') >= 1:
+    if "BC." in sort_dict['years']:
         return int(years[-1]) * -1
     else:
         return int(years[-1])
