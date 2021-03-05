@@ -57,11 +57,15 @@ for i in range(9):
 # 4)
 
 
-def sort_by_len_text(sort_dict):
-    return len(sort_dict['text'])
+def sort_by_count_words(sort_dict):
+    count = 0
+    for word in sort_dict['text'].split():
+        count += 1
+    print(count)
+    return count
 
 
-data = sorted(data, key=sort_by_len_text)
+data = sorted(data, key=sort_by_count_words)
 
 print("\nSorted by length of the 'text':\n")
 for i in range(9):
