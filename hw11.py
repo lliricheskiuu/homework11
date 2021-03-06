@@ -56,13 +56,8 @@ for i in range(9):
 
 # 4)
 
-
 def sort_by_count_words(sort_dict):
-    count = 0
-    for word in sort_dict['text'].split():
-        count += 1
-    # print(count)
-    return count
+    return len(sort_dict['text'].split())
 
 
 data = sorted(data, key=sort_by_count_words)
